@@ -1,0 +1,34 @@
+Test Case 1
+Input:
+Valid CSV + Valid Resume
+
+Expected:
+Canonical profile generated successfully.
+
+--------------------------------
+
+Test Case 2
+Input:
+Missing phone number
+
+Expected:
+phones = []
+
+--------------------------------
+
+Test Case 3
+Input:
+Malformed PDF
+
+Expected:
+Pipeline does not crash.
+Missing values become null.
+
+--------------------------------
+
+Test Case 4
+Input:
+Duplicate emails
+
+Expected:
+Single deduplicated email.

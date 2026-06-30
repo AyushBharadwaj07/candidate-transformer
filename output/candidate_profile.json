@@ -1,0 +1,108 @@
+{
+    "full_name": "Ayush Bharadwaj",
+    "emails": [
+        "ayush.bharadwaj.113@gmail.com"
+    ],
+    "phones": [
+        "+917848051371"
+    ],
+    "current_company": "NIST University",
+    "title": "AI Intern",
+    "skills": [
+        {
+            "name": "Artificial Intelligence",
+            "confidence": 0.95
+        },
+        {
+            "name": "C",
+            "confidence": 0.95
+        },
+        {
+            "name": "Git",
+            "confidence": 0.95
+        },
+        {
+            "name": "GitHub",
+            "confidence": 0.95
+        },
+        {
+            "name": "LangChain",
+            "confidence": 0.95
+        },
+        {
+            "name": "Llama",
+            "confidence": 0.95
+        },
+        {
+            "name": "Machine Learning",
+            "confidence": 0.95
+        },
+        {
+            "name": "Matplotlib",
+            "confidence": 0.95
+        },
+        {
+            "name": "NumPy",
+            "confidence": 0.95
+        },
+        {
+            "name": "Ollama",
+            "confidence": 0.95
+        },
+        {
+            "name": "Pandas",
+            "confidence": 0.95
+        },
+        {
+            "name": "Prompt Engineering",
+            "confidence": 0.95
+        },
+        {
+            "name": "Python",
+            "confidence": 0.95
+        },
+        {
+            "name": "REST APIs",
+            "confidence": 0.95
+        },
+        {
+            "name": "SQL",
+            "confidence": 0.95
+        },
+        {
+            "name": "Scikit-learn",
+            "confidence": 0.95
+        },
+        {
+            "name": "Seaborn",
+            "confidence": 0.95
+        },
+        {
+            "name": "Streamlit",
+            "confidence": 0.95
+        }
+    ],
+    "provenance": {
+        "full_name": [
+            "csv",
+            "resume"
+        ],
+        "emails": [
+            "csv",
+            "resume"
+        ],
+        "phones": [
+            "resume"
+        ],
+        "skills": [
+            "resume"
+        ],
+        "current_company": [
+            "csv"
+        ],
+        "title": [
+            "csv"
+        ]
+    },
+    "overall_confidence": 0.95
+}

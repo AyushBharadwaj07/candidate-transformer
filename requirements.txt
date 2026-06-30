@@ -1,0 +1,4 @@
+pandas
+PyMuPDF
+phonenumbers
+python-dateutil
