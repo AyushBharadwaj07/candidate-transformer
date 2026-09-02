@@ -1,30 +1,109 @@
+# Multi-Source Candidate Data Transformer
 
-### One thing I'd change specifically for Sugam
+An AI/data-processing pipeline that combines candidate information from structured and unstructured sources and generates a clean, standardized candidate profile.
 
-The **“Future Improvements”** section is actually very important here.
+## Overview
 
-Your current project stops at:
+Recruitment data often comes from multiple sources such as recruiter spreadsheets, resumes, and other candidate records. These sources can contain inconsistent formats, missing information, duplicate records, and unstructured text.
 
-**Resume/CSV → Structured Candidate Profile**
+The **Candidate Transformer** addresses this problem by ingesting candidate data from multiple sources, extracting relevant information, normalizing the data, removing duplicate records, and generating a canonical candidate profile in JSON format.
 
-But Sugam's **Talent AI Scorecard** goes further:
+The resulting structured profile can be used as a foundation for downstream recruitment systems such as candidate search, matching, ranking, and AI-powered screening.
 
-**Candidate Profile → Embeddings → Semantic Matching → Candidate Score/Ranking**
+## Problem Statement
 
-So if the tech team asks:
+Candidate information is often fragmented across:
 
-> **“How would you extend this project for Sugam AI?”**
+- Recruiter CSV files
+- Resume PDFs
+- Different naming and formatting conventions
+- Duplicate candidate records
+- Unstructured resume content
 
-You can say:
+Manually cleaning and combining this information is time-consuming and error-prone.
 
-> “My current Candidate Transformer focuses on creating a clean canonical candidate profile from multiple sources. The next step would be to generate embeddings for the candidate profile and job description, perform semantic matching, and use those results as one component of a candidate scorecard.”
+This project automates that transformation process.
 
-That's a **very natural bridge between your project and their product.**
+## Key Features
 
-### ⚠️ One important thing before you update it
+- Multi-source candidate data ingestion
+- CSV and PDF processing
+- Resume information extraction
+- Candidate data normalization
+- Phone number normalization using E.164 format
+- Skill extraction
+- Duplicate candidate detection and removal
+- Canonical candidate profile generation
+- Confidence scoring
+- Provenance tracking
+- Runtime-configurable output
+- JSON export
+- Modular processing pipeline
 
-I don't want you to blindly add technologies that your actual code **doesn't use**.
+## Data Sources
 
-For example, if your Candidate Transformer doesn't actually use an LLM, don't put **LLM/LangChain** in the Tech Stack just because Sugam uses them.
+### Structured Data
 
-If you send me a **screenshot of your Candidate Transformer GitHub repository's files** (or the project folder), I can check the actual implementation and make the README **100% accurate to your code**, including the exact architecture, libraries, and what you can confidently discuss with their tech team.
+Recruiter-provided CSV files containing candidate information such as:
+
+- Name
+- Email
+- Phone
+- Skills
+- Experience
+- Other candidate attributes
+
+### Unstructured Data
+
+Resume PDFs containing information such as:
+
+- Candidate name
+- Contact information
+- Skills
+- Education
+- Experience
+- Resume content
+
+## Pipeline Architecture
+
+```text
+             ┌──────────────────┐
+             │   Recruiter CSV  │
+             └────────┬─────────┘
+                      │
+                      ▼
+             ┌──────────────────┐
+             │ Data Ingestion   │
+             └────────┬─────────┘
+                      │
+                      │
+             ┌────────▼─────────┐
+             │ Data Processing  │
+             │ & Normalization  │
+             └────────┬─────────┘
+                      │
+                      │
+     ┌────────────────┴────────────────┐
+     │                                 │
+     ▼                                 ▼
+┌──────────────┐                ┌──────────────┐
+│ Resume PDF   │                │ Candidate    │
+│ Extraction   │                │ Data         │
+└──────┬───────┘                └──────┬───────┘
+       │                               │
+       └───────────────┬───────────────┘
+                       ▼
+              ┌──────────────────┐
+              │ Merge & Dedup    │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ Canonical Profile│
+              │ Generation       │
+              └────────┬─────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ JSON Output      │
+              └──────────────────┘
